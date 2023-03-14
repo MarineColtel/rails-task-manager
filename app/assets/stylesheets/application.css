@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ ul {
+  list-style-type: none;
+}
+
+a {
+  color: #219ebc;
+  text-decoration: none; /* no underline */
+}
+
+.button {
+  color: white;
+}

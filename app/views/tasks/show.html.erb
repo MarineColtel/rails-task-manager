@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="d-flex align-items-center justify-content-between p-2">
+    <h1><%= @task.title %></h1>
+    <div>
+      <i class="fa-solid fa-pen"></i>
+      <%= link_to "Edit task", edit_task_path, class: "button btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body bg-light border border-2">
+      <h4><%= @task.details %></h4>
+    </div>
+  </div>
+
+  <br>
+  <p>
+    <% if @task.completed == true %>
+      <i class="fa-solid fa-square-check"></i>
+      <%= "This task is completed !" %>
+    <% else %>
+      <i class="fa-regular fa-square-check pe-2"></i>
+      <%= "This task is not completed yet" %>
+    <% end %>
+  </p>
+  <br>
+  <i class="fa-solid fa-rotate-left"></i>
+  <%= link_to "Back to Tasks list", tasks_path %>
+  <br>
+  <i class="fa-solid fa-trash-can ps-2"></i>
+  <%= link_to "Delete task",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</div>

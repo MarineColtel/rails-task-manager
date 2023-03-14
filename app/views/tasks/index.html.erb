@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>My TODO List</h1>
+  <div class="list-group" id="list-of-tasks">
+    <% @tasks.each do |task| %>
+      <div class="d-flex align-items-center p-1">
+        <% if task.completed == true %>
+            <i class="fa-regular fa-square-check pe-2"></i>
+            <%= link_to task.title, task_path(task.id) %>
+            <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can ps-2"></i>
+            <% end %>
+        <% else %>
+            <i class="fa-regular fa-square pe-2"></i>
+            <%= link_to task.title, task_path(task.id) %>
+            <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can ps-2"></i>
+            <% end %>
+        <% end  %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <i class="fa-solid fa-plus"></i>
+    <%= link_to "Add a new task", new_task_path %>
+  </div>
+</div>
